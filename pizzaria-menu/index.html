@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio da Pizzaria</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Cardápio da Pizzaria</h1>
+        <input type="text" id="search-input" placeholder="Pesquisar pizzas e bebidas..." oninput="searchItems()">
+    </header>
+    <main>
+        <div class="tabs">
+            <button class="tab-button" onclick="showTab('pizza-list')">Pizzas</button>
+            <button class="tab-button" onclick="showTab('drink-list')">Bebidas</button>
+        </div>
+        <div id="pizza-list" class="tab-content items-container"></div>
+        <div id="drink-list" class="tab-content items-container" style="display: none;"></div>
+        <div id="cart" class="column">
+            <h2>Carrinho</h2>
+            <ul id="cart-items"></ul>
+            <p id="total">Total: R$0</p>
+            <label for="address">Endereço de Entrega:</label>
+            <input type="text" id="address" placeholder="Digite seu endereço">
+            <button onclick="placeOrder()">Finalizar Pedido</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Pizzaria. Todos os direitos reservados.</p>
+    </footer>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
