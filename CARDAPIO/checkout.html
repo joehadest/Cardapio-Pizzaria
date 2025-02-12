@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/header.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <button class="back-btn" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
+            <h1>Checkout</h1>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container">
+            <h2>Informações de Pagamento e Entrega</h2>
+            <form id="checkout-form">
+                <label for="address">Endereço:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="payment-method">Forma de Pagamento:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="credit-card">Cartão de Crédito</option>
+                    <option value="debit-card">Cartão de Débito</option>
+                    <option value="cash">Dinheiro</option>
+                </select>
+
+                <button type="submit">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts/main.js" defer></script>
+</body>
+
+</html>

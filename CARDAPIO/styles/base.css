@@ -1,0 +1,239 @@
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de cor */
+:root {
+    /* Nova paleta dourada */
+    --gold-dark: #916927;
+    --gold-medium: #c49b3c;
+    --gold-light: #e6b325;
+    --cream-light: #fff8e7;
+    --brown-light: #8b7355;
+
+    /* Variáveis semânticas */
+    --primary-color: var(--gold-medium);
+    --secondary-color: var(--gold-dark);
+    --background-color: var(--cream-light);
+    --accent-color: var(--gold-light);
+    --highlight-color: var(--brown-light);
+
+    /* Cores de texto */
+    --text-color: var(--gold-dark);
+    --text-light: var(--gold-medium);
+    --text-inverse: var(--cream-light);
+
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, var(--gold-medium), var(--gold-light));
+    --gradient-secondary: linear-gradient(135deg, var(--gold-dark), var(--gold-medium));
+    --gradient-accent: linear-gradient(135deg, var(--gold-light), var(--gold-medium));
+
+    /* Shadows with brown tint */
+    --shadow-sm: 0 2px 4px rgba(67, 40, 24, 0.1);
+    --shadow-md: 0 4px 8px rgba(67, 40, 24, 0.12);
+    --shadow-lg: 0 8px 16px rgba(67, 40, 24, 0.15);
+
+    /* Transitions */
+    --transition-default: all 0.3s ease;
+    --transition-fast: all 0.2s ease;
+    --transition-slow: all 0.4s ease;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+
+    /* Button styles */
+    --button-padding: 12px 24px;
+    --button-radius: 8px;
+    --button-shadow: 0 4px 6px rgba(67, 40, 24, 0.2);
+    --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Bloqueia scroll horizontal */
+}
+
+body {
+    overflow-y: auto;
+    /* Permite apenas scroll vertical */
+    -webkit-overflow-scrolling: touch;
+    /* Scroll suave para iOS */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    overflow-y: auto;
+    margin-top: 70px;
+    background-color: var(--background-color);
+    min-height: calc(100vh - 70px);
+    /* Garante altura mínima para scroll */
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.welcome-message {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.start-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #f0f0f0;
+}
+
+.cart-sidebar,
+.sidebar {
+    background-color: var(--secondary-color);
+    border-left: 2px solid var(--primary-color);
+}
+
+.item,
+.dropdown-menu,
+.categories-button {
+    background: var(--gradient-dark);
+    border: 1px solid var(--border-color);
+}
+
+.checkout-btn,
+.add-to-cart-btn {
+    background: var(--gradient-secondary);
+}
+
+button:hover {
+    background: var(--gradient-secondary) !important;
+}
+
+/* Ajustes mobile */
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    .cart-sidebar.show {
+        transform: translateX(-100%);
+    }
+
+    .cart-total,
+    .checkout-btn {
+        width: 100%;
+        right: 0;
+    }
+
+    #cart {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .cart-items li {
+        font-size: 0.85rem;
+    }
+
+    .cart-sidebar .close-btn {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Button styles */
+button,
+.btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
+    border: none;
+    background: var(--gradient-primary);
+    color: var(--warm-cream);
+    cursor: pointer;
+    transition: var(--button-transition);
+    box-shadow: var(--button-shadow);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(67, 40, 24, 0.3);
+    background: var(--gradient-secondary);
+}
+
+button:active,
+.btn:active {
+    transform: translateY(0);
+    box-shadow: var(--button-shadow);
+}
+
+/* Typography improvements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-title);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+p,
+span,
+li {
+    color: var(--text-color);
+    font-family: var(--font-body);
+}
+
+/* Card styles */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-default);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}

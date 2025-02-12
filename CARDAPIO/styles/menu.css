@@ -1,0 +1,456 @@
+/* Estilos específicos do menu principal */
+.categories-section {
+    display: inline-block;
+    position: sticky;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--background-color);
+    /* Alterado para fundo escuro */
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid var(--border-color);
+    /* Adicionando borda da mesma cor do fundo */
+    margin-bottom: -1px;
+    /* Para evitar espaço branco */
+}
+
+.categories-button {
+    font-family: var(--font-heading);
+    background: var(--gradient-primary);
+    color: var(--warm-cream);
+    padding: var(--button-padding);
+    border-radius: 50px;
+    border: 2px solid var(--golden-brown);
+    box-shadow: var(--button-shadow);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto;
+    min-width: 220px;
+    max-width: 280px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.categories-button::before {
+    content: '🍽️';
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.categories-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+}
+
+.categories-button:hover {
+    background: var(--gradient-secondary);
+    border-color: var(--rust-brown);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(227, 24, 55, 0.2);
+}
+
+.categories-button:hover::after {
+    transform: translateX(100%);
+    transition: transform 0.6s ease;
+}
+
+/* Adicionar animação ao ícone do botão */
+.categories-button i {
+    transition: transform 0.4s ease;
+    font-size: 1.2rem;
+}
+
+.categories-button:hover i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--deep-brown);
+    border: 1px solid var(--golden-brown);
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tab-content.show {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    color: var(--warm-cream);
+    background: var(--deep-brown);
+}
+
+.dropdown-menu li i {
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    transition: transform 0.3s ease;
+    margin-right: 10px;
+    text-shadow: 1px 1px 2px rgba(67, 40, 24, 0.2);
+}
+
+.dropdown-menu li:hover {
+    background: var(--cream-light);
+    border-left: 3px solid var(--gold-medium);
+    color: var(--warm-cream);
+}
+
+.dropdown-menu li:hover i {
+    color: var(--rust-brown);
+    transform: scale(1.2);
+}
+
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    padding-top: 40px;
+    /* Aumentado o padding superior */
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    /* Adicionado margem superior */
+    animation: fadeIn 0.5s ease forwards;
+    background-color: var(--warm-cream);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(67, 40, 24, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.category-transition {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-transition::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.category-transition:hover::after {
+    transform: scaleX(1);
+}
+
+.item {
+    background: var(--warm-cream);
+    border: 2px solid var(--golden-brown);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(67, 40, 24, 0.08);
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    background: var(--gold-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(67, 40, 24, 0.15);
+    border-color: var(--gold-light);
+}
+
+.item-header {
+    color: var(--deep-blue);
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--golden-brown);
+    margin-bottom: 15px;
+}
+
+.item-header h3 {
+    color: #000000;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 10px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: none;
+    display: block;
+    /* Garante que o título seja sempre visível */
+    visibility: visible;
+    /* Força a visibilidade */
+    opacity: 1;
+    /* Garante opacidade total */
+    background: transparent;
+    /* Remove qualquer background que possa estar escondendo */
+}
+
+.item-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--rust-brown);
+    border-radius: 2px;
+}
+
+.item:hover .item-header h3 {
+    color: #000000;
+    /* Mantém preto no hover */
+}
+
+.item:hover .item-description {
+    color: #000000;
+    /* Mantém preto no hover */
+}
+
+.item:hover .item-price {
+    color: #000000;
+    /* Mantém preto no hover */
+}
+
+/* Remove a regra anterior que mudava todas as cores para branco */
+.item:hover .item-header h3,
+.item:hover .item-description,
+.item:hover .item-price {
+    color: #000000;
+}
+
+.item button {
+    font-family: var(--font-body);
+    background: var(--gradient-primary);
+    color: var(--warm-cream);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition-default);
+}
+
+.item button:hover {
+    background: var(--gradient-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.item-size {
+    background: var(--deep-brown);
+    color: #000000;
+    border: 1px solid var(--golden-brown);
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    margin: 10px 0;
+    font-family: var(--font-body);
+}
+
+.item-size option {
+    background: var(--warm-cream);
+    color: #000000;
+}
+
+.item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.item:hover::before {
+    transform: scaleX(1);
+}
+
+.item h3 {
+    color: #000000;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 15px 0;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.item h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.item-description {
+    color: #000000;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    visibility: visible;
+    display: block;
+    opacity: 1;
+}
+
+.item select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--golden-brown);
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--deep-brown);
+    color: var (--warm-cream);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.item select:hover {
+    border-color: var(--rust-brown);
+}
+
+.item select:focus {
+    outline: none;
+    border-color: var(--golden-brown);
+    box-shadow: 0 0 0 2px rgba(187, 148, 87, 0.2);
+}
+
+.item-price {
+    color: #000000;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    visibility: visible;
+    display: block;
+    opacity: 1;
+}
+
+.item button i {
+    font-size: 1.1rem;
+}
+
+.item-header i {
+    color: var(--golden-brown);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(67, 40, 24, 0.2);
+}
+
+.fa-pizza-slice {
+    color: var(--rust-brown);
+}
+
+.fa-glass-whiskey {
+    color: var(--golden-brown);
+}
+
+.fa-hamburger {
+    color: var(--dark-brown);
+}
+
+.fa-fish {
+    color: var(--deep-brown);
+}
+
+.fa-cookie-bite {
+    color: var(--rust-brown);
+}
+
+.content .container {
+    /* Centraliza horizontalmente e define largura máxima */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content {
+    margin-top: 40px;
+    /* Aumentado a margem superior do conteúdo */
+    padding-top: 20px;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .items-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .content {
+        padding-bottom: 80px;
+    }
+
+    .categories-section {
+        padding: 10px 0;
+    }
+
+    .categories-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .items-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+}

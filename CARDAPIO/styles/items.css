@@ -1,0 +1,206 @@
+/* Estilos base para todos os itens */
+.item {
+    background: var(--secondary-color);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho do item */
+.item-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.item-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Estilos específicos para cada categoria */
+#pizza-list .item-icon::before {
+    content: '🍕';
+}
+
+#burger-list .item-icon::before {
+    content: '🍔';
+}
+
+#drink-list .item-icon::before {
+    content: '🥤';
+}
+
+#sushi-list .item-icon::before {
+    content: '🍱';
+}
+
+#snack-list .item-icon::before {
+    content: '🍟';
+}
+
+.item h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin: 0;
+    flex: 1;
+}
+
+.item-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 48px;
+}
+
+/* Container de opções e preço */
+.item-options {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.item select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.item select:hover {
+    border-color: var(--primary-color);
+}
+
+.item-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 15px 0;
+    text-align: center;
+}
+
+.item button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--gradient-secondary);
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.item button:hover {
+    background: var(--gradient-primary);
+    transform: translateY(-2px);
+}
+
+.item button i {
+    font-size: 1.2rem;
+}
+
+/* Badges e destaques */
+.item-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gradient-secondary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Animações */
+@keyframes itemAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item {
+    animation: itemAppear 0.5s ease forwards;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .item {
+        padding: 20px;
+    }
+
+    .item-header {
+        gap: 10px;
+    }
+
+    .item h3 {
+        font-size: 1.2rem;
+    }
+
+    .item-description {
+        font-size: 0.9rem;
+        min-height: auto;
+    }
+
+    .item button {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .item-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .item-options {
+        padding: 10px;
+    }
+
+    .item select {
+        padding: 10px;
+    }
+}

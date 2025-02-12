@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="welcome-container">
+        <div class="welcome-message">
+            <h2>Bem-vindo ao nosso Cardápio Online!</h2>
+            <p>Escolha suas comidas e bebidas favoritas e faça seu pedido agora mesmo.</p>
+            <a href="menu.html" class="start-button">
+                <i class="fas fa-utensils"></i> Acessar Cardápio
+            </a>
+        </div>
+    </div>
+    <script>
+        function toggleCheckoutSection(show) {
+            const checkoutSection = document.getElementById('checkout-section');
+            if (checkoutSection) {
+                if (typeof show === 'boolean') {
+                    checkoutSection.style.display = show ? 'block' : 'none';
+                } else {
+                    checkoutSection.style.display = checkoutSection.style.display === 'none' ? 'block' : 'none';
+                }
+            }
+            // Reenable body scroll regardless of device when checkout is hidden
+            if (!show) {
+                document.body.style.overflow = '';
+                document.body.classList.remove('cart-open');
+            }
+        }
+
+        document.querySelectorAll('.side-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                window.location.href = `menu.html?category=${category}`;
+            });
+        });
+
+        // Redirecionar para o menu quando clicar no botão
+        document.querySelector('.start-button').addEventListener('click', function (e) {
+            window.location.href = 'menu.html';
+        });
+    </script>
+</body>
+
+</html>
